@@ -1,4 +1,5 @@
 import Tag from '../tag';
+import BreakTag from './break';
 import CodeTag from './code';
 import ImageTag from './image';
 import HorizontalRuleTag from './hr';
@@ -23,6 +24,7 @@ export default {
   h4: createSimpleTag('h4', { STRIP_OUTER: true }),
   h5: createSimpleTag('h5', { STRIP_OUTER: true }),
   h6: createSimpleTag('h6', { STRIP_OUTER: true }),
+  p: createSimpleTag('p'),
   pre: createSimpleTag('pre'),
   table: createSimpleTag('table', { DISCARD_TEXT: true }),
   thead: createSimpleTag('thead', { DISCARD_TEXT: true }),
@@ -30,6 +32,7 @@ export default {
   tr: createSimpleTag('tr', { DISCARD_TEXT: true }),
   th: createSimpleTag('th'),
   td: createSimpleTag('td'),
+  br: BreakTag,
   code: CodeTag,
   img: ImageTag,
   hr: HorizontalRuleTag,

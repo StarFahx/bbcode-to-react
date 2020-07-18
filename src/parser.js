@@ -85,10 +85,17 @@ export default class Parser {
 
     return new Tag(this.renderer, { text, parent });
   }
+  
+  lineBreaksSplit(str) {
+    str = `[p]${str}[/p]`;
+    str = str.replace(/\n\n(\n*)/g, '[/p][p]$1');
+    str = str.replace(/\n/g, '[br]');
+    return str.split(TOKEN_RE);
+  }
 
   parse(input) {
     const root = new Tag(this.renderer);
-    const tokens = input.split(TOKEN_RE);
+    const tokens = lineBreaksSplit(input);
     let current = root;
     let token = null;
     while (tokens.length) {
